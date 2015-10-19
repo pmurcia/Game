@@ -22,5 +22,8 @@ module Game
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
+    #RSpotify.authenticate("711cfbffc8b14c8b8ff4d8ed7c84f94f", "afc2160151c341d298755de3c8e28270")
+
   end
 end
