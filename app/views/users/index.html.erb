@@ -3,3 +3,17 @@
   <li><%= user.username %> - <%= user.password %></li>
   <% end %>
 </ul>
+
+<%= button_to "Nuevo usuario", '/users/new', method: :get %>
+
+<%= form_for @user, url: { action: "login" } do |f| %> 
+
+  <%= f.label :username %> 
+  <%= f.text_field :username %> 
+  <br> 
+  <%= f.label :password %> 
+  <%= f.password_field :password %> 
+  <br> 
+
+  <%= f.submit 'Save', method: :get, action:'/users/login' %> 
+<% end %> 

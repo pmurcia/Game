@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   def index
     # In order to show the users, picks up all users
   	@users = User.all
+    @user = User.new
   end
 
   def show
@@ -46,6 +47,16 @@ class UsersController < ApplicationController
 
   def destroy
     # Deletes a user
+  end
+
+  def login
+    @user = User.find_by(params[:username])
+
+    if(@user.password == params[:password])
+      redirect_to action: 'show', controller: 'users', id: @user.id
+    else
+      render 'index'
+    end
   end
 
   private
